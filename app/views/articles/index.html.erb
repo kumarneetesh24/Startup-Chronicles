@@ -1,0 +1,31 @@
+<div class="page-header"><h1>Articles</h1></div>
+<%= link_to("add new article",{:action =>"new"}, :class =>"action new" )%>
+<div><%= pluralize(@articles.size,'subject')%> found</div>
+<div id="my-articles">
+<table class ="listing" summary="Article list">
+	<tr >
+		<th>&nbsp;</th>
+		<th>title</th>
+		<th>created at</th>
+		<th>visible</th>
+		<th>actions</th>
+	</tr>
+	<% @articles.each do |article| %>
+	<tr>
+		<td><%=article.position%></td>
+		<td><%= article.title%></td>
+		<td><%= article.timestamp%></td>
+		<td><%=article.visible%></td>
+		<td class="action">
+			<%= link_to("show",{:action => 'show', :id => article.id}, :class => 'action show')%>
+			<%= link_to("edit",{:action => 'edit', :id => article.id}, :class => 'action edit')%>
+			<%= link_to("delete",{:action => 'delete', :id => article.id}, :class => 'action delete')%>
+		</td>
+	</tr>
+	<% end %>
+</table>
+</div>
+
+<div id="infinite-scrolling">
+  <%= will_paginate %>
+</div>
