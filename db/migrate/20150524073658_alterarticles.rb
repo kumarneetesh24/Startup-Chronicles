@@ -4,3 +4,4 @@ class Alterarticles < ActiveRecord::Migration
   	add_column("articles","visible",:boolean,:default=>false)
   end
 end
+

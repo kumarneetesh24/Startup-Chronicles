@@ -1,6 +1,6 @@
 <div class="page-header"><h1>Articles</h1></div>
 <%= link_to("add new article",{:action =>"new"}, :class =>"action new" )%>
-<div><%= pluralize(@articles.size,'subject')%> found</div>
+<div><%= pluralize(@articles.size,'article')%> found</div>
 <div id="my-articles">
 <table class ="listing" summary="Article list">
 	<tr >

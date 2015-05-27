@@ -1,0 +1,12 @@
+<div class="page-header"><h1>Admins</h1></div>
+<%= link_to("back to article",{:action =>"index"}, :class =>"action index") %>
+
+<div class="update_article">
+<h3>update article</h3>
+<%= form_for(:adminusers, :url=>{:action =>'update',:id => @adminusers.id}) do |f| %>
+ <%= render(:partial => 'form',:locals =>{:f => f}) %>
+ <div class="form-submit">
+ 	<%= submit_tag("update article") %>
+ </div>
+ <% end %>
+</div>

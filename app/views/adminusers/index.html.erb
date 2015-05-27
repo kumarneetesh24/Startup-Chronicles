@@ -1,0 +1,26 @@
+<div class="page-header"><h1>Admins</h1></div>
+<%= link_to("add new user",{:action =>"new"}, :class =>"action new" )%>
+<div><%= pluralize(@adminusers.size,'article')%> found</div>
+<div id="my-articles">
+<table class ="listing" summary="Article list">
+	<tr >
+		<th>First name</th>
+		<th>last name</th>
+		<th>Username</th>
+		<th>email</th>
+		<th>action</th>
+	</tr>
+	<% @adminusers.each do |users| %>
+	<tr>
+		<td><%=users.first_name%></td>
+		<td><%=users.last_name%></td>
+		<td><%= users.username%></td>
+		<td><%= users.email%></td>
+		<td class="action">
+			<%= link_to("edit",{:action => 'edit', :id => users.id}, :class => 'action edit')%>
+			<%= link_to("delete",{:action => 'delete', :id => users.id}, :class => 'action delete')%>
+		</td>
+	</tr>
+	<% end %>
+</table>
+</div>

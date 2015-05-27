@@ -1,12 +1,12 @@
 <div class="page-header"><h1>Articles</h1></div>
 <%= link_to("back to article",{:action =>"index"}, :class =>"action index") %>
 
-<div class="create_article">
-<h3>create article</h3>
-<%= form_for(:articles, :url=>{:action =>'create'}) do |f| %>
+<div class="update_article">
+<h3>update article</h3>
+<%= form_for(:articles, :url=>{:action =>'update',:id => @articles.id}) do |f| %>
  <%= render(:partial => 'form',:locals =>{:f => f}) %>
  <div class="form-submit">
- 	<%= submit_tag("create article") %>
+ 	<%= submit_tag("update article") %>
  </div>
  <% end %>
 </div>

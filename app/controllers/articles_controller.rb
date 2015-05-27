@@ -23,12 +23,12 @@ class ArticlesController < ApplicationController
 	end
 
 	def edit
-		@artilces= Article.find(params[:id])
+		@articles= Article.find(params[:id])
 	end
 
 	def update
 		@articles=Article.find(params[:id])
-		if @articles.update_attributes(article_prams)
+		if @articles.update_attributes(article_params)
 			flash[:notice]="Article updated successfully"
 			redirect_to(:action=>"show",:id=>@articles.id)
 		else
@@ -37,17 +37,17 @@ class ArticlesController < ApplicationController
 	end
 
 	def delete
-		@artilces= Article.find(params[:id])
+		@articles= Article.find(params[:id])
 	end
 
 	def destroy
-		@artilces=Article.find(params[:id])
-		@artilces.destroy
-		redirect_to("index")
+		@articles=Article.find(params[:id])
+		@articles.destroy
+		redirect_to(:action => 'index')
 	end
 
 	private
 	def article_params
-		params.require(:article).permit(:title,:position,:visible,:body,:created_at)
+		params.require(:articles).permit(:title,:position,:visible,:body,:created_at)
 	end
 end
