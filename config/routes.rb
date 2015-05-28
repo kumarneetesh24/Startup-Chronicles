@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
 
+  get 'public/index'
+
+  get 'public/show'
+
+  get 'articles/index'
+
+  get 'articles/show'
+
    match ':controller(/:action(/:id))', :via => [:get, :post]
 
    get 'admin', :to => "access#index" 

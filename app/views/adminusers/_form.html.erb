@@ -19,4 +19,8 @@
 		<th><%=f.label(:password, "Password") %></th>
 		<td><%=f.password_field(:password) %></td>
 	</tr>
+	<tr>
+		<th><%=f.label(:visible,"send emails for query") %></th>
+		<td><%=f.check_box(:visible) %></td>
+	</tr>
 </table>

@@ -1,4 +1,5 @@
 <div class="page-header"><h1>Admins</h1></div>
+<%= link_to("<< Back",{:controller =>'access'}, :class =>"action" )%>
 <%= link_to("add new user",{:action =>"new"}, :class =>"action new" )%>
 <div><%= pluralize(@adminusers.size,'article')%> found</div>
 <div id="my-articles">

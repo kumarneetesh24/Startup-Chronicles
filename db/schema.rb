@@ -11,25 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150525061829) do
+ActiveRecord::Schema.define(version: 20150528073303) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "first_name",      limit: 25
     t.string   "last_name",       limit: 25
     t.string   "username",        limit: 40
-    t.string   "email",           limit: 100, default: "", null: false
+    t.string   "email",           limit: 100, default: "",    null: false
     t.string   "password_digest", limit: 255
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.boolean  "visible",         limit: 1,   default: false
   end
 
   create_table "articles", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.text     "body",       limit: 65535
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
-    t.integer  "position",   limit: 4
-    t.boolean  "visible",    limit: 1,     default: false
+    t.integer  "admin_user_id", limit: 4
+    t.string   "title",         limit: 255
+    t.text     "body",          limit: 65535
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.integer  "position",      limit: 4
+    t.boolean  "visible",       limit: 1,     default: false
   end
+
+  add_index "articles", ["admin_user_id"], name: "index_articles_on_admin_user_id", using: :btree
 
 end

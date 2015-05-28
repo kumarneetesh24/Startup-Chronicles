@@ -1,6 +1,7 @@
 class AdminusersController < ApplicationController
 
-
+ before_action :confirm_logged_in
+  
   def index
   	@adminusers= AdminUser.sorted
   end
@@ -44,6 +45,6 @@ class AdminusersController < ApplicationController
   private
 
   def admin_params
-  	params.require(:adminusers).permit(:first_name,:last_name,:email,:password,:username)
+  	params.require(:adminusers).permit(:first_name,:last_name,:email,:password,:username,:visible)
   end
 end

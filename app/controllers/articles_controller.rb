@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
 
+	before_action :confirm_logged_in
 	def index
 		@articles= Article.paginate(page: params[:page],per_page:15).sorted
 	end
