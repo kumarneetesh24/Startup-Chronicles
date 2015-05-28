@@ -1,13 +1,7 @@
 Rails.application.routes.draw do
 
 
-  get 'public/index'
-
-  get 'public/show'
-
-  get 'articles/index'
-
-  get 'articles/show'
+   root "public#index"
 
    match ':controller(/:action(/:id))', :via => [:get, :post]
 

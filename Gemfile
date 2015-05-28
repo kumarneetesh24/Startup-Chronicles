@@ -7,7 +7,7 @@ gem 'betterlorem', '~> 0.1.2'
 gem 'bootstrap-sass', '~> 3.0.3.0'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem "paperclip"
-
+gem 'rails4_client_side_validations', '~> 4.2.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'

@@ -7,6 +7,10 @@ class Article < ActiveRecord::Base
 	scope :visible, lambda{ where(:visible => true)}
 	scope :invisible, lambda{ where(:visible => false)}
 
+	validates :title, :presence => true,
+					:length =>{ :maximum => 50}
+	validates :body, :presence => true
+
 	def timestamp
     created_at.strftime('%d %B %Y %H:%M:%S')
 	end
