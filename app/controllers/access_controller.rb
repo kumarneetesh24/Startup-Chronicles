@@ -3,6 +3,8 @@ class AccessController < ApplicationController
  before_action :confirm_logged_in, :except => [:login, :attempt_login, :logout]
 
   def index
+    @user= AdminUser.find(session[:user_id])
+     
   end
 
   def login

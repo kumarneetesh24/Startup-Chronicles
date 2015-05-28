@@ -1,6 +1,6 @@
 <div class="page-header"><h1>Articles</h1></div>
 <%= link_to("<< Back",{:controller =>'access'}, :class =>"action" )%>
-<%= link_to("add new article",{:action =>"new"}, :class =>"action new" )%>
+<%= link_to("add new article",{:action =>"new"},"data-no-turbolink" => true, :class =>"action new" )%>
 <div><%= pluralize(@articles.size,'article')%> found</div>
 <div id="my-articles">
 <table class ="listing" summary="Article list">
@@ -19,7 +19,7 @@
 		<td><%=article.visible%></td>
 		<td class="action">
 			<%= link_to("show",{:action => 'show', :id => article.id}, :class => 'action show')%>
-			<%= link_to("edit",{:action => 'edit', :id => article.id}, :class => 'action edit')%>
+			<%= link_to("edit",{:action => 'edit', :id => article.id},"data-no-turbolink" => true, :class => 'action edit')%>
 			<%= link_to("delete",{:action => 'delete', :id => article.id}, :class => 'action delete')%>
 		</td>
 	</tr>

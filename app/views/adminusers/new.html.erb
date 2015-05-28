@@ -3,7 +3,7 @@
 
 <div class="create_article">
 <h3>create article</h3>
-<%= form_for(:adminusers, :url=>{:action =>'create'}) do |f| %>
+<%= form_for(:adminusers,:html =>{:id => "users_form"}, :url=>{:action =>'create'}) do |f| %>
  <%= render(:partial => 'form',:locals =>{:f => f}) %>
  <div class="form-submit">
  	<%= submit_tag("create admin") %>

@@ -5,6 +5,13 @@ class ApplicationController < ActionController::Base
 
   private
 
+   def only_admin
+    @user= AdminUser.find(session[:user_id])
+     if @user.visible == false
+     redirect_to('/404.html') 
+   end
+  end
+
   def confirm_logged_in
   	unless session[:user_id]
   		flash[:notice]="please log in"
