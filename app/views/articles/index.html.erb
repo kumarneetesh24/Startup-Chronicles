@@ -9,6 +9,7 @@
 		<th>title</th>
 		<th>created at</th>
 		<th>visible</th>
+		<th>image</th>
 		<th>actions</th>
 	</tr>
 	<% @articles.each do |article| %>
@@ -17,6 +18,9 @@
 		<td><%= article.title%></td>
 		<td><%= article.timestamp%></td>
 		<td><%=article.visible%></td>
+		<% article.article_images.each do |img|%>
+          <td> <%= image_tag img.photo.url(:thumb) %> </td>
+          <%end%>
 		<td class="action">
 			<%= link_to("show",{:action => 'show', :id => article.id}, :class => 'action show')%>
 			<%= link_to("edit",{:action => 'edit', :id => article.id},"data-no-turbolink" => true, :class => 'action edit')%>

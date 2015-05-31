@@ -2,7 +2,7 @@ class PublicController < ApplicationController
   
 
     def index
-	   @public= Article.paginate(page: params[:page],per_page:15).sorted
+	   @public= Article.visible.paginate(page: params[:page],per_page:15).sorted
  	end
 
 

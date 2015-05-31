@@ -3,10 +3,13 @@ class ArticlesController < ApplicationController
 	before_action :confirm_logged_in
 	def index
 		@articles= Article.paginate(page: params[:page],per_page:15).sorted
+
 	end
 
 	def new
 		@articles=Article.new()
+		4.times {@articles.article_images.build}
+		@articles_count= Article.count+1
 	end
 
 	def create
@@ -25,6 +28,8 @@ class ArticlesController < ApplicationController
 
 	def edit
 		@articles= Article.find(params[:id])
+		4.times {@articles.article_images.build}
+		@articles_count= Article.count+1
 	end
 
 	def update
@@ -49,6 +54,6 @@ class ArticlesController < ApplicationController
 
 	private
 	def article_params
-		params.require(:articles).permit(:title,:position,:visible,:body,:created_at)
+		params.require(:article).permit(:title,:position,:visible,:body,:created_at, article_images_attributes: [:photo])
 	end
 end

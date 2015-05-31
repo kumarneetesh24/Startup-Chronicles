@@ -3,10 +3,10 @@ $(document).ready(function(){
 
 		$('#articles_form').validate({
 	    rules: {
-	       "articles[title]": {
+	       "article[title]": {
 	       required: true
 	      },
-	      "articles[body]": {
+	      "article[body]": {
 	       required: true, minlength: 6
 	      }
 

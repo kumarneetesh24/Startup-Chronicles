@@ -6,18 +6,26 @@
       </tr>
       <tr>
         <th><%= f.label(:position, 'position') %></th>
-        <td><%= f.text_field(:position) %></td>
+        <td><%= f.select(:position,1..@articles_count) %></td>
       </tr>
+      <%= f.fields_for :article_images do |builder| %>
+        <% if builder.object.new_record? %>
+        <tr>
+          <th><%= builder.label :photo, "Image" %></th>
+          <td><%= builder.file_field :photo %></td>
+        </tr>
+        <% end %> 
+      <% end %>
       <tr>
-        <th><%= f.label(:visible , 'visible') %></th>
-        <td><%= f.check_box(:visible) %></td>
-      </tr> 
-       <tr>
         <th><%= f.label(:body , 'body') %></th>
         <td><%= f.text_area(:body) %></td>
       </tr>
       <tr>
         <th><%= f.label(:created_at , 'created at') %></th>
         <td><%= f.datetime_select (:created_at) %></td>
+      </tr>
+      <tr>
+        <th><%= f.label(:visible , 'visible') %></th>
+        <td><%= f.check_box(:visible) %></td>
       </tr>
     </table>

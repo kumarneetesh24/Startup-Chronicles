@@ -9,3 +9,9 @@
 <p>visiblity- <%=@articles.visible %> </p>
 <br>>
 <%=strip_tags(@articles.body)%>
+
+<%@articles.article_images.each do |imgs|%>
+<p>
+	<%= image_tag imgs.photo.url(:thumb) %>
+</p>
+<% end -%>
