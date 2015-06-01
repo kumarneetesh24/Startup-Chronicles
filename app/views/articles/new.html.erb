@@ -1,12 +1,24 @@
-<div class="page-header"><h1>Article</h1></div>
-<%= link_to("back to article",{:action =>"index"}, :class =>"action index") %>
+<% @page_title="Articles" %>
+<ol class="breadcrumb">
+    <li>
+        <i class="fa fa-dashboard"></i>  <a href="/admin">Admin</a>
+    </li>
+    <li>
+        <i class="fa fa-table"></i> <a href="/articles">Article</a>
+    </li>
+    <li class="active">
+        <i class="fa fa-form"></i> New
+    </li>
+</ol>
+
+<%= link_to("back",{:action =>"index"}, :class =>"btn btn-inverse" )%>
 
 <div class="create_article">
-<h3>create article</h3>
+<h4 style="text-align:center">Create Article</h4>
 <%= form_for(@articles,:html =>{:id => "articles_form"}, :url=>{:action =>'create'}) do |f| %>
  <%= render(:partial => 'form',:locals =>{:f => f}) %>
- <div class="form-submit">
- 	<%= submit_tag("create article") %>
+ <div class="form-submit" style="text-align:center">
+ 	<%= submit_tag("create article",:class =>"btn btn-success") %>
  </div>
  <% end %>
 </div>

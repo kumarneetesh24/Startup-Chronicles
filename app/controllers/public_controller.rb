@@ -28,7 +28,7 @@ class PublicController < ApplicationController
 			UserMailer.send_query_email(f,@name,@email,@subject,@message).deliver
 		end
 		flash[:notice]="query has been sent"
-		redirect_to(:action => 'contact_us')
+		redirect_to(:action => 'index')
 	end
 
 end

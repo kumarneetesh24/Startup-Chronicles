@@ -1,31 +1,33 @@
 <%= error_msg(@articles) %>
-<table summary="Article form fields">
-      <tr>
-        <th><%= f.label(:title, 'title') %></th>
-        <td><%= f.text_field(:title) %></td>
-      </tr>
-      <tr>
-        <th><%= f.label(:position, 'position') %></th>
-        <td><%= f.select(:position,1..@articles_count) %></td>
-      </tr>
+<div summary="Article form fields" class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="form-group row">
+        <div class="col-xs-3"><%= f.label(:title, 'title:',:class=>"h6") %></div>
+        <div class="col-xs-8"><%= f.text_field :title,:placeholder=>"enter title" ,:class=>"form-control" %></div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-3"><%= f.label(:position, 'position:',:class=>"h6") %></div>
+        <div class="col-sm-5"><%= f.select(:position,1..@articles_count,:class=>"form-control") %></div>
+      </div>
       <%= f.fields_for :article_images do |builder| %>
         <% if builder.object.new_record? %>
-        <tr>
-          <th><%= builder.label :photo, "Image" %></th>
-          <td><%= builder.file_field :photo %></td>
-        </tr>
+        <div class="form-group row">
+          <div class="col-sm-3"><%= builder.label :photo, "Image:",:class=>"h6 demo-heading-note" %></div>
+          <div class="col-sm-5"><%= builder.file_field :photo,:class=>"form-control" %></div>
+        </div>
         <% end %> 
       <% end %>
-      <tr>
-        <th><%= f.label(:body , 'body') %></th>
-        <td><%= f.text_area(:body) %></td>
-      </tr>
-      <tr>
-        <th><%= f.label(:created_at , 'created at') %></th>
-        <td><%= f.datetime_select (:created_at) %></td>
-      </tr>
-      <tr>
-        <th><%= f.label(:visible , 'visible') %></th>
-        <td><%= f.check_box(:visible) %></td>
-      </tr>
-    </table>
+      <div class="form-group row">
+        <div class="col-sm-3"><%= f.label(:body , 'body:',:class=>"h6") %></div>
+        <div class="col-sm-8"><%= f.text_area(:body,:size => '80x10',:placeholder=>"enter body",:class=>"form-control" ) %></div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-3"><%= f.label(:created_at , 'created at:',:class=>"h6") %></div>
+        <div class="col-sm-8"><%= f.datetime_select :created_at,:class=>"form-control"%></div>
+      </div>
+      <div class="form-group row">
+         <div class="col-sm-3"><%= f.label(:visible , 'visible:',:class=>"h6") %></div>
+          <div class="col-sm-3"><%= f.check_box(:visible,:class=>"custom-checkbox") %></div>
+      </div>
+    </div>
+    </div>
