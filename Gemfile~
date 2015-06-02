@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem "ckeditor"
+
 gem 'lorem-ipsum', '~> 0.1.1'
 gem 'will_paginate', '~> 3.0.5'
 gem 'betterlorem', '~> 0.1.2'

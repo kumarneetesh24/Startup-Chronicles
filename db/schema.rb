@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150530131441) do
+ActiveRecord::Schema.define(version: 20150602130736) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "first_name",      limit: 25
@@ -22,16 +22,6 @@ ActiveRecord::Schema.define(version: 20150530131441) do
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
     t.boolean  "visible",         limit: 1,   default: false
-  end
-
-  create_table "article_images", force: :cascade do |t|
-    t.integer  "article_id",         limit: 4
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "photo_file_name",    limit: 255
-    t.string   "photo_content_type", limit: 255
-    t.integer  "photo_file_size",    limit: 4
-    t.datetime "photo_updated_at"
   end
 
   create_table "articles", force: :cascade do |t|
@@ -45,5 +35,21 @@ ActiveRecord::Schema.define(version: 20150530131441) do
   end
 
   add_index "articles", ["admin_user_id"], name: "index_articles_on_admin_user_id", using: :btree
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",    limit: 255, null: false
+    t.string   "data_content_type", limit: 255
+    t.integer  "data_file_size",    limit: 4
+    t.integer  "assetable_id",      limit: 4
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width",             limit: 4
+    t.integer  "height",            limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
 end

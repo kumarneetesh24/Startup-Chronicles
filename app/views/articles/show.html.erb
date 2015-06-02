@@ -20,11 +20,6 @@
 <hr class="star-primary"> </hr>
 <div class="small em" ><%=@articles.timestamp%></div>
 <br>
-<p><%=strip_tags(@articles.body)%></p>
+<p><%=@articles.body.html_safe%></p>
 
-<%@articles.article_images.each do |imgs|%>
-<p>
-	<%= image_tag imgs.photo.url(:thumb) %>
-</p>
-<% end -%>
 </div>

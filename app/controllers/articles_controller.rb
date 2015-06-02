@@ -10,7 +10,6 @@ class ArticlesController < ApplicationController
 
 	def new
 		@articles=Article.new()
-		4.times {@articles.article_images.build}
 		@articles_count= Article.count+1
 	end
 
@@ -30,7 +29,6 @@ class ArticlesController < ApplicationController
 
 	def edit
 		@articles= Article.find(params[:id])
-		4.times {@articles.article_images.build}
 		@articles_count= Article.count+1
 	end
 
@@ -56,6 +54,6 @@ class ArticlesController < ApplicationController
 
 	private
 	def article_params
-		params.require(:article).permit(:title,:position,:visible,:body,:created_at, article_images_attributes: [:photo])
+		params.require(:article).permit(:title,:position,:visible,:body,:created_at)
 	end
 end

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+  mount Ckeditor::Engine => '/ckeditor'
    root "public#index"
 
    match ':controller(/:action(/:id))', :via => [:get, :post,:patch]

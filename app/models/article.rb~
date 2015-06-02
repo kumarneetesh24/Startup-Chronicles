@@ -1,5 +1,7 @@
 class Article < ActiveRecord::Base
 
+	has_many :article_images, :dependent => :destroy
+	accepts_nested_attributes_for :article_images
 	belongs_to :admin_user
 	
 	 
