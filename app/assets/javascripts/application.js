@@ -24,4 +24,17 @@ $(document).ready(function(){
 window.scroll(0,150);
 
 });
-window.onload = Scrolldown;
+
+function loadContent( id , title) {
+	
+    document.getElementById("action_destroy").href='/articles/destroy/'+id; 
+    document.getElementById("mymodal_name").innerHTML=title; 
+    return false;
+  };
+
+  function loadadmin( id , username) {
+	
+    document.getElementById("action_destroy").href='/adminusers/destroy/'+id; 
+    document.getElementById("mymodal_name").innerHTML=username; 
+    return false;
+  };

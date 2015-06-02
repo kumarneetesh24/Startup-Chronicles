@@ -1,13 +1,24 @@
 <% @page_title="Admin Users" %>
-<div class="page-header"><h1>Admins</h1></div>
-<%= link_to("back to article",{:action =>"index"}, :class =>"action index") %>
+<ol class="breadcrumb">
+    <li>
+        <i class="fa fa-dashboard"></i>  <a href="/admin">Admin</a>
+    </li>
+    <li>
+        <i class="fa fa-table"></i> <a href="/adminusers">Users</a>
+    </li>
+    <li class="active"  id="myID">
+        <i class="fa fa-form"></i> New
+    </li>
+</ol>
 
-<div class="update_article">
+<%= link_to("back",{:action =>"index"}, :class =>"btn btn-inverse" )%>
+
+<div class="update_article" style="text-align:center">
 <h3>update article</h3>
 <%= form_for(:adminusers,:html=>{:id => "users_form",:multipart=>true} ,:url=>{:action =>'update',:id => @adminusers.id}) do |f| %>
  <%= render(:partial => 'form',:locals =>{:f => f}) %>
- <div class="form-submit">
- 	<%= submit_tag("update article") %>
+ <div class="form-submit" style="text-align:center">
+ 	<%= submit_tag("update article",:class =>"btn btn-success") %>
  </div>
  <% end %>
 </div>

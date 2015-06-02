@@ -12,7 +12,7 @@
     </li>
 </ol>
 <%= link_to("back",{:action =>"index"}, :class =>"btn btn-inverse" )%>
-<%= link_to("edit",{:action =>"edit",:id => @articles.id}, :class =>"btn btn-primary pull-right" )%>
+<%= link_to("edit",{:action =>"edit",:id => @articles.id}, :class =>"btn btn-primary pull-right","data-no-turbolink" => true )%>
 <div >
 
 <h4 style="text-align:center"><%=@articles.title%></h4>

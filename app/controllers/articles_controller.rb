@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 
-	layout 'admin'
-	
+	layout 'admin', :except => :delete
+
 	before_action :confirm_logged_in
 	def index
 		@articles= Article.paginate(page: params[:page],per_page:15).sorted
@@ -44,7 +44,7 @@ class ArticlesController < ApplicationController
 
 	def delete
 		@articles= Article.find(params[:id])
-	end
+    end
 
 	def destroy
 		@articles=Article.find(params[:id])

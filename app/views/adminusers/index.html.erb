@@ -1,27 +1,61 @@
 <% @page_title="Admin Users" %>
-<%= link_to("<< Back",{:controller =>'access'}, :class =>"action" )%>
-<%= link_to("add new user",{:action =>"new"},"data-no-turbolink" => true, :class =>"action new" )%>
+<ol class="breadcrumb">
+    <li>
+        <i class="fa fa-dashboard"></i>  <a href="/admin">Admin</a>
+    </li>
+    <li class="active">
+        <i class="fa fa-table"></i> Users
+    </li>
+</ol>
+
+<%= link_to("add new user",{:action =>"new"},"data-no-turbolink" => true, :class =>"pull-right btn btn-primary" )%>
 <div><%= pluralize(@adminusers.size,'article')%> found</div>
-<div id="my-articles">
-<table class ="listing" summary="Article list">
-	<tr >
-		<th>First name</th>
-		<th>last name</th>
-		<th>Username</th>
-		<th>email</th>
-		<th>action</th>
-	</tr>
-	<% @adminusers.each do |users| %>
-	<tr>
-		<td><%=users.first_name%></td>
-		<td><%=users.last_name%></td>
-		<td><%= users.username%></td>
-		<td><%= users.email%></td>
-		<td class="action">
-			<%= link_to("edit",{:action => 'edit', :id => users.id},"data-no-turbolink" => true)%>
-			<%= link_to("delete",{:action => 'delete', :id => users.id})%>
-		</td>
-	</tr>
-	<% end %>
-</table>
-</div>
+<div class="container" id="myID">
+<div class="row">
+    <div class="col-lg-11">
+        <h4 style="text-align:center">Articles List</h4>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+						<th>Name</th>
+						<th>Username</th>
+						<th>Email</th>
+						<th>Admin</th>
+						<th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+               <% @adminusers.each do |users| %>
+					<tr>
+						<td><%=users.name%></td>
+						<td><%= users.username%></td>
+						<td><%= users.email%></td>
+						<td><%=users.visible%></td>
+						<td class="row">
+							<%= link_to("edit",{:action => 'edit', :id => users.id},"data-no-turbolink" => true, :class => 'btn btn-warning')%>
+							<a href="#" class="btn btn-danger" data-toggle="modal" data-target="#myModal"  onclick="loadadmin(<%=users.id%>,'<%=users.username%>')">delete</a>
+					</tr>
+					<% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel" style="text-align:center">Sure to delete</h4>
+          </div>
+          <div class="modal-body"  style="text-align:center">
+           <h5 id="mymodal_name"></h5>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+            <a href="" class="btn btn-danger" id="action_destroy">Yes</a>
+          </div>
+        </div>
+      </div>
+    </div>
