@@ -13,13 +13,13 @@
 </ol>
 <%= link_to("back",{:action =>"index"}, :class =>"btn btn-inverse" )%>
 <%= link_to("edit",{:action =>"edit",:id => @articles.id}, :class =>"btn btn-primary pull-right","data-no-turbolink" => true )%>
-<div >
+<div class="row">
 
-<h4 style="text-align:center"><%=@articles.title%></h4>
+<h4 class="text-center"><%=@articles.title%></h4>
 
-<hr class="star-primary"> </hr>
-<div class="small em" ><%=@articles.timestamp%></div>
+<div class="small em text-center" ><%=@articles.timestamp%></div>
 <br>
+<div class="col-lg-10 col-lg-offset-1">
 <p><%=@articles.body.html_safe%></p>
-
+</div>
 </div>

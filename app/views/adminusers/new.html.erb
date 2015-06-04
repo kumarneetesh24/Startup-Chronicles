@@ -14,7 +14,7 @@
 <%= link_to("back",{:action =>"index"}, :class =>"btn btn-inverse" )%>
 
 <div class="create_article" style="text-align:center">
-<h3>create article</h3>
+<h3>create User</h3>
 <%= form_for(:adminusers,:html =>{:id => "users_form"}, :url=>{:action =>'create'}) do |f| %>
  <%= render(:partial => 'form',:locals =>{:f => f}) %>
  <div class="form-submit" style="text-align:center">

@@ -12,16 +12,18 @@
 //
 //= require ckeditor/init
 //= require jquery
+//= require bootstrap
 //= require jquery_ujs
 //= require jquery.validate
 //= require validate.js
-//= require bootstrap
 //= require turbolinks
-//= require_tree .
+//= require classie
+
+
 
 $(document).ready(function(){
 
-window.scroll(0,150);
+ //window.scroll(0,150);
 
 });
 

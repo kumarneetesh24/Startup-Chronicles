@@ -1,18 +1,27 @@
+
 <!DOCTYPE html>
 <html>
 <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
 <head>
-  <title>Startup Chronicles<%= " | #{@page_title}" if @page_title %></title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title><%=@page_title%></title>
+  <%= stylesheet_link_tag    'public', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'mypublic', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body id="page-top" class="index" >
+<body style="background-color:#18bc9c" >
 
 <%= yield %>
 
+
+<script type="text/javascript">
+      (function($) {
+
+        window.sr= new scrollReveal({
+          reset: true,
+          mobile: true
+        });
+
+      })();
+</script>
 </body>
 </html>

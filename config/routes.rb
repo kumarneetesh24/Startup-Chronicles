@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
    root "public#index"
-
+    get 'show/:id', :to => 'public#show'
    match ':controller(/:action(/:id))', :via => [:get, :post,:patch]
   
    get 'admin', :to => "access#index" 

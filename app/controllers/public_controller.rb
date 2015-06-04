@@ -1,5 +1,6 @@
 class PublicController < ApplicationController
   
+	layout 'mypublic' ,:except => :show
 
     def index
 	   @public= Article.visible.paginate(page: params[:page],per_page:15).sorted
@@ -10,9 +11,7 @@ class PublicController < ApplicationController
 		@public=Article.find(params[:id])
 	end
 
-	def about_us
 	
-	end
 
 	def contact_us
 

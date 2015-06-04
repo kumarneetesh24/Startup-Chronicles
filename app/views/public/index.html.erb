@@ -1,61 +1,63 @@
-<div class="page-header">
-  <h1>My Articles</h1>
-</div>
-<% if session[:user_name] %>
-	<% ses= session[:user_name] %>
-	<%= link_to("#{ses}",{:controller =>'admin'}, :class =>"action" )%>
-<%else %>
-	<%=link_to("login",{:controller =>'access'}, :class =>"action" )%>
-<% end %>
-<%=link_to("about_us",{:action => 'about_us'}, :class =>"action" )%>
-<%=link_to("contact_us",{:action => 'contact_us'}, :class =>"action" )%>
-<div id="my-articles">
+<% cntr=0 %>
 <% @public.each do |article| %>
-<%= link_to( article.title,{:action => 'show', :id => article.id}, :class => 'action show')%>
- <small><em><%= article.timestamp %></em></small>
+   <% if cntr==0 %>
+  <div class="row">
+   <% end -%>
+     <div class="col-sm-3 chronicle-item" data-sr=" enter <%=cycle('left move 300px','left move 150px','right move 150px','right move 200px') %> over 2s">
+         <div class="component">
+                <ul class="align">
+                     
+                        <figure class='book'>
 
-  <p><%= truncate(strip_tags(article.body), length: 600) %></p>
-</div>
-<% end %>
+                           <!-- Front -->
 
+                         <ul class='hardcover_front'>
+                             <li>
+                                <%= image_tag(article.thumb.url(:large),:height=>'100%',:width=>'100%') %>
+                             </li>
+                                <li></li>
+                        </ul>
+
+                    <!-- Pages -->
+
+                        <ul class='page'>
+                            <li></li>
+                            <li>
+                               <%=link_to( "View",{:action => 'show', :id => article.id}, :class => 'btn btn-info')%>
+                            </li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+
+                    <!-- Back -->
+
+                        <ul class='hardcover_back'>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                        <ul class='book_spine'>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </figure>
+                     <h4 class="text-center" data-sr="vFactor 2.0" style="position:relative;top:30px; left:-70px">
+                     <%= truncate(strip_tags(article.title), length: 20) %>
+					</h4> 
+               
+            </ul>
+        </div>
+    </div>
+  <% if cntr==4 %>
+ 	</div>
+   <% end -%>
+	<% cntr= cntr+1%>
+	<%cntr = cntr%5 %>
+  <% end %>
 
 <div id="infinite-scrolling">
   <%= will_paginate %>
 </div>
 
-<h1>About Us</h1>
-<p>
-ournalism is a tool, which when used wisely and effectively, has the power to turn nothing into everything. With writers developing at every Facebook post and reporters going out of their way to grab and break news first, we believe that the essence of journalism is lost. It is about reaching out to an array of audience through just a few words, and Startup Chronicles help in doing so. The current generation does not believe in waiting for the opportunity to come their way, they take a leap of faith and risk their talents. With Start-up Companies of all sorts emerging slowly, it is almost impossible to keep track of what’s new. 
-</p>
-<p>So do you have a Start-up company, YouTube Blog, Music Album, started a Food Joint, or launched Couture Boutique, authored a Book, or developed a Gaming App (so goes the endless list) and you wish it reached to a wider audience? Trouble having to collect revenue for advertising your genius, on paper? </p>
-
-<p>Startup Chronicles will record your endeavour and write about events you’d wish to make popular. Free Unlimited advertisements on Social Sites will be an obvious part of the deal! (Who doesn’t follow social media after all?) We believe in active, updated and fresh reporting and what better than your Start-up, to archive? 
-</p>
-
-<p>We gladly welcome you to be Chronicled forever.</p>
-  
-  <h1>Contact Us</h1>
-  <%= form_tag(:action =>'query') do  %>
-<table>
-	    <tr>
-			<th><%= label_tag(:name,'Name')%></th>
-			<td><%= text_field_tag(:name)%></td>
-		</tr>
-		 <tr>
-			<th><%= label_tag(:email,'email')%></th>
-			<td><%= text_field_tag(:email)%></td>
-		</tr>
-		 <tr>
-			<th><%= label_tag(:subject,'subject')%></th>
-			<td><%= text_field_tag(:subject)%></td>
-		</tr>
-		 <tr>
-			<th><%= label_tag(:message,'Message')%></th>
-			<td><%= text_area_tag(:message)%></td>
-		</tr>
-		<tr>
-      	<td>&nbsp;</td>
-      	<td><%= submit_tag("send") %></td>
-    	</tr>	
-</table>
-<% end %>
+ 

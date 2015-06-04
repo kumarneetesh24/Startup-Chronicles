@@ -1,7 +1,9 @@
 class Article < ActiveRecord::Base
 
 	belongs_to :admin_user
-	
+	has_attached_file :thumb , styles: { small: "64x64", med: "100x100", large: "400x900" }
+	validates :thumb, :attachment_presence => true
+	validates_attachment_content_type :thumb, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 	 
 	acts_as_list
 	scope :sorted, lambda{ order("articles.position ASC")}

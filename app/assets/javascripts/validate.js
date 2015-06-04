@@ -7,13 +7,43 @@ $(document).ready(function(){
 	       required: true
 	      },
 	      "article[body]": {
-	       required: true, minlength: 6
-	      }
 
+	      	required: true,
+	        minlength: 10
+	      },
+
+	      "article[thumb]": {
+		  	required: true,
+		  	accept: ".jpg|.jpeg|.png",
+		  }
 	    }
 	  });
 
 }); // end document.ready
+
+$(document).ready(function(){
+
+
+		$('#contactForm').validate({
+	    rules: {
+	       name: {
+	       required: true
+	      },
+	      email: {
+	      	required: true,
+	         email: true
+	      },
+
+	      subject: {
+		  	required: true,
+		  },
+		  message: {
+		  	required: true
+		  }
+	    }
+	  });
+
+}); 
 
 
 $(document).ready(function(){

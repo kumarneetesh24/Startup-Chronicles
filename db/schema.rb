@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150602130736) do
+ActiveRecord::Schema.define(version: 20150603201800) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "first_name",      limit: 25
@@ -25,13 +25,17 @@ ActiveRecord::Schema.define(version: 20150602130736) do
   end
 
   create_table "articles", force: :cascade do |t|
-    t.integer  "admin_user_id", limit: 4
-    t.string   "title",         limit: 255
-    t.text     "body",          limit: 65535
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
-    t.integer  "position",      limit: 4
-    t.boolean  "visible",       limit: 1,     default: false
+    t.integer  "admin_user_id",      limit: 4
+    t.string   "title",              limit: 255
+    t.text     "body",               limit: 65535
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
+    t.integer  "position",           limit: 4
+    t.boolean  "visible",            limit: 1,     default: false
+    t.string   "thumb_file_name",    limit: 255
+    t.string   "thumb_content_type", limit: 255
+    t.integer  "thumb_file_size",    limit: 4
+    t.datetime "thumb_updated_at"
   end
 
   add_index "articles", ["admin_user_id"], name: "index_articles_on_admin_user_id", using: :btree

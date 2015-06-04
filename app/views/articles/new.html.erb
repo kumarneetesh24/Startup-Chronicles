@@ -15,7 +15,7 @@
 
 <div class="create_article">
 <h4 style="text-align:center">Create Article</h4>
-<%= form_for(@articles,:html =>{:id => "articles_form"}, :url=>{:action =>'create'}) do |f| %>
+<%= form_for(@articles,:html =>{:id => "articles_form",:multipart=>true}, :url=>{:action =>'create'}) do |f| %>
  <%= render(:partial => 'form',:locals =>{:f => f}) %>
  <div class="form-submit" style="text-align:center">
  	<%= submit_tag("create article",:class =>"btn btn-success") %>

@@ -1,21 +1,32 @@
+<% @page_tiitle = "login" %>
+<div class="container-fluid" style="margin-top:4%">
 <div class="login">
+ <% if !flash[:notice].blank? %>
+        <div class="notice text-center" style="color:rgb(255,200,200)">
+          <%= flash[:notice] %>
+        </div>
+        <% end %>
 <%= form_tag(:action => 'attempt_login') do %>
-        <div class="login-screen">
-
-          <div class="login-form">
+        <div class="login-screen row">
+        <div class="col-sm-6 col-sm-offset-2">
+       
+          <div class="login-form ">
             <div class="form-group">
-            <%= text_field_tag 'username',class: "form-control login-field",placeholder: "Enter your name",id: "login-name" %>
-           <%= label_tag('username',class: "login-field-icon fui-user") %>
+            <%= text_field_tag 'username',nil, class: "form-control login-field",placeholder: "Username",id: "login-name" %>
+           <%= label_tag('username',"") %>
             </div>
 
             <div class="form-group">
-                 <%= password_field_tag 'password', class: "form-control login-field",placeholder: "Password",id: "login-pass" %>
-                  <%= label_tag( 'password',class: "login-field-icon fui-lock") %>
+                 <%= password_field_tag 'password',nil, class: "form-control login-field",placeholder: "Password",id: "login-pass" %>
+                  <%= label_tag( :password,"") %>
             </div>
               <%= submit_tag("Log In",:class=>"btn btn-primary btn-lg btn-block") %>
+               
           </div>
+            <a href="/" class="btn btn-inverse" style="text-align:center;margin:35%; margin-bottom:20px">Back to Article</a>
+          </div>
+
         </div>
         <% end %>
     </div>
-
-    
+</div>

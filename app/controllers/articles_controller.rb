@@ -19,6 +19,7 @@ class ArticlesController < ApplicationController
 			flash[:notice]="article created successfully"
 			redirect_to(:action =>"index")
 		else 
+			@articles_count= Article.count+1
 			render("new")
 		end
 	end
@@ -38,6 +39,7 @@ class ArticlesController < ApplicationController
 			flash[:notice]="Article updated successfully"
 			redirect_to(:action=>"show",:id=>@articles.id)
 		else
+			@articles_count= Article.count+1
 			render("edit")
 		end
 	end
@@ -54,6 +56,6 @@ class ArticlesController < ApplicationController
 
 	private
 	def article_params
-		params.require(:article).permit(:title,:position,:visible,:body,:created_at)
+		params.require(:article).permit(:title,:position,:visible,:body,:created_at,:thumb)
 	end
 end

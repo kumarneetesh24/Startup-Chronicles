@@ -1,12 +1,9 @@
+<% @page_title="Admin"%>
 <div class="menu">
-  <h2>Admin Menu</h2>
   <div class="identity">Logged in as: <%= session[:user_name] %></div>
 </div>
-<%=link_to("View Content", {:controller => 'public'}, :id =>"content")%>
+<div class="myart">
+<%=link_to("View Articles", {:controller => 'public'}, :class =>"btn btn-lg btn-primary",:styles=>"padding-right: 30px;
+    padding-left: 30px;")%>
 </div>
-
-<% if @user.visible == false %>
-    	<script>
-    	$("#manadmin").hide;
-    	</script>
-    <% end%>
+</div>
