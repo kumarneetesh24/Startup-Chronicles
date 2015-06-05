@@ -27,6 +27,7 @@ $(document).ready(function(){
 
 });
 
+
 function loadContent( id , title) {
 	
     document.getElementById("action_destroy").href='/articles/destroy/'+id; 

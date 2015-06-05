@@ -4,14 +4,14 @@
     <li>
         <i class="fa fa-dashboard"></i>  <a href="/admin">Admin</a>
     </li>
-    <li class="active">
+    <li class="active" id="myid">
         <i class="fa fa-table"></i> Articles
     </li>
 </ol>
 
 <%= link_to("add new article",{:action =>"new"},"data-no-turbolink" => true, :class =>"pull-right btn btn-primary" )%>
 <div style="padding-left:10px"><%= pluralize(@articles.size,'Article')%> found</div>
-<div class="container" id="myID">
+<div class="container" >
 <div class="row">
     <div class="col-lg-11">
         <h4 style="text-align:center">Articles List</h4>

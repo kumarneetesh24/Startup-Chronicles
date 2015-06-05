@@ -45,7 +45,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <div class="row"  >
-                <%= image_tag "profile.png", :height=>"71.5px",:weight=>"45px" ,:class=>"col-sm-3"%>
+                <%= image_tag "LOGO.jpg", :height=>"45px",:weight=>"80" ,:class=>"col-sm-3" ,:style=>'margin-top:10px'%>
                  <a class="navbar-brand col-sm-3" href="#page-top">Home</a> 
                 </div>
             </div>
@@ -79,10 +79,16 @@
         <!-- /.container-fluid -->
     </nav>
     <header>
-        <div class="container">
+        <div class="container intro" id="myheader">
             <div class="row">
                 <div class="col-lg-12">
-                    <%= image_tag "profile.png", :class=>"img-responsive",:'data-sr'=>"wait 3s enter top ease-in 100px over 1s"%>
+                 <div class="row">
+                     <div class="col-sm-3"><%= image_tag "linked-in.png", :class=>"img-responsive",:'data-sr'=>"wait 3s enter top ease-in 100px over 1s"%></div>
+                     <div class="col-sm-3"><%= image_tag "my.png", :class=>"img-responsive",:'data-sr'=>"wait 3s enter top ease-in 100px over 1s"%></div>
+                     <div class="col-sm-3"><%= image_tag "twter.png", :class=>"img-responsive",:'data-sr'=>"wait 3s enter top ease-in 100px over 1s"%></div>
+                      <div class="col-sm-3"><%= image_tag "flickr.png", :class=>"img-responsive",:'data-sr'=>"wait 3s enter top ease-in 100px over 1s"%></div>
+                 </div>
+                    
                     <div class="intro-text">
                         <span class="name" data-sr="wait 2.8s enter bottom ease-in 100px over 1s">Startup Chroninles</span>
                         <hr class="star-light" data-sr="enter bottom move 50px">

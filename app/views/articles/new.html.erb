@@ -1,5 +1,5 @@
 <% @page_title="Articles" %>
-<ol class="breadcrumb">
+<ol class="breadcrumb" id="myid">
     <li>
         <i class="fa fa-dashboard"></i>  <a href="/admin">Admin</a>
     </li>
@@ -13,7 +13,7 @@
 
 <%= link_to("back",{:action =>"index"}, :class =>"btn btn-inverse" )%>
 
-<div class="create_article">
+<div class="create_article" >
 <h4 style="text-align:center">Create Article</h4>
 <%= form_for(@articles,:html =>{:id => "articles_form",:multipart=>true}, :url=>{:action =>'create'}) do |f| %>
  <%= render(:partial => 'form',:locals =>{:f => f}) %>

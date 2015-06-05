@@ -6,14 +6,14 @@
     <li>
         <i class="fa fa-table"></i> <a href="/adminusers">Users</a>
     </li>
-    <li class="active"  id="myID">
+    <li class="active"  id="myID" >
         <i class="fa fa-form"></i> New
     </li>
 </ol>
 
 <%= link_to("back",{:action =>"index"}, :class =>"btn btn-inverse" )%>
 
-<div class="update_article" style="text-align:center">
+<div class="update_article" style="text-align:center"  id="myid">
 <h3>update User</h3>
 <%= form_for(:adminusers,:html=>{:id => "users_form",:multipart=>true} ,:url=>{:action =>'update',:id => @adminusers.id}) do |f| %>
  <%= render(:partial => 'form',:locals =>{:f => f}) %>
