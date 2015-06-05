@@ -3,7 +3,7 @@ class PublicController < ApplicationController
 	layout 'mypublic' ,:except => :show
 
     def index
-	   @public= Article.visible.paginate(page: params[:page],per_page:15).sorted
+	   @public= Article.visible.paginate(page: params[:page],per_page:8).sorted
  	end
 
 

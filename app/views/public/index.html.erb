@@ -49,14 +49,18 @@
             </ul>
         </div>
     </div>
-  <% if cntr==4 %>
+  <% if cntr==3 %>
  	</div>
    <% end -%>
 	<% cntr= cntr+1%>
-	<%cntr = cntr%5 %>
+	<%cntr = cntr%4 %>
   <% end %>
 
-<div id="infinite-scrolling">
+  <% if cntr!= 0 %>
+  </div>
+  <% end %>
+
+<div class="bottom text-center">
   <%= will_paginate %>
 </div>
 
