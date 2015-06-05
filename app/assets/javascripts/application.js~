@@ -12,17 +12,22 @@
 //
 //= require ckeditor/init
 //= require jquery
+//= require bootstrap
 //= require jquery_ujs
 //= require jquery.validate
 //= require validate.js
 //= require turbolinks
+//= require classie
+//= require ckeditor-jquery
+
 
 
 $(document).ready(function(){
 
-//window.scroll(0,150);
+ //window.scroll(0,150);
 
 });
+
 
 function loadContent( id , title) {
 	
