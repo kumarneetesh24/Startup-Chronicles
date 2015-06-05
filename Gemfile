@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-
+gem "rails_12factor"
+gem "pg"
+ruby "2.2.1"
 gem "ckeditor"
 gem 'lorem-ipsum', '~> 0.1.1'
 gem 'will_paginate', '~> 3.0.5'
