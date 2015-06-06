@@ -8,6 +8,8 @@ Rails.application.config.assets.precompile += %w( mypublic.js )
 Rails.application.config.assets.precompile += %w( modernizr.custom.js )
 Rails.application.config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
 Rails.application.config.assets.precompile += Ckeditor.assets
+Rails.application.config.assets.precompile += %w( ckeditor/* )
+
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path

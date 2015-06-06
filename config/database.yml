@@ -50,4 +50,4 @@ production:
   <<: *default
   database: startup
   username: root
-  password: <%= ENV['ARTICLE_WEB_DATABASE_PASSWORD'] %>
+  password: imnkinsane
